@@ -2,20 +2,20 @@ import { Module, forwardRef } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AuthController } from '@auth/controllers/auth.controller';
-import { AuthService } from '@auth/services/auth.service';
-import { GoogleStrategy } from '@auth/strategies/google.strategy';
-import { LocalStrategy } from '@auth/strategies/local.strategy';
-import { JwtStrategy } from '@auth/strategies/jwt.strategy';
-import { UsersModule } from '@users/users.module';
-import { TokensModule } from '@tokens/tokens.module';
-import { EmailModule } from '@email/email.module';
-import { RolesGuard } from '@auth/guards/roles.guard';
-import { PermissionsGuard } from '@auth/guards/permissions.guard';
-import { RolesModule } from '@roles/roles.module';
-import { RateLimitGuard } from '@common/guards/rate-limit.guard';
-import { AccountLockoutGuard } from '@common/guards/account-lockout.guard';
-import { SessionsModule } from '@sessions/sessions.module';
+import { AuthController } from './controllers/auth.controller';
+import { AuthService } from './services/auth.service';
+import { GoogleStrategy } from './strategies/google.strategy';
+import { LocalStrategy } from './strategies/local.strategy';
+import { JwtStrategy } from './strategies/jwt.strategy';
+import { UsersModule } from '../users/users.module';
+import { TokensModule } from '../tokens/tokens.module';
+import { EmailModule } from '../email/email.module';
+import { RolesGuard } from './guards/roles.guard';
+import { PermissionsGuard } from './guards/permissions.guard';
+import { RolesModule } from '../roles/roles.module';
+import { RateLimitGuard } from '../common/guards/rate-limit.guard';
+import { AccountLockoutGuard } from '../common/guards/account-lockout.guard';
+import { SessionsModule } from '../sessions';
 
 /**
  * Authentication module

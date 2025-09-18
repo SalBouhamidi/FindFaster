@@ -5,8 +5,8 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { AuthenticatedUser } from '@auth/interfaces/auth.interface';
-import { RoleAssignmentService } from '@roles/services/role-assignment.service';
+import { AuthenticatedUser } from '../interfaces/auth.interface';
+import { RoleAssignmentService } from '../../roles/services/role-assignment.service';
 
 /**
  * Permission-based access control guard

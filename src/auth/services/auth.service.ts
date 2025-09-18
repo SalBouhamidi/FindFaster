@@ -10,22 +10,22 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { Request } from 'express';
-import { UsersRepository } from '@users/repositories/users.repository';
-import { CreateUserDto } from '@users/dtos/create-user.dto';
-import { GoogleAuthDto } from '@auth/dtos/google-auth.dto';
-import { RegisterDto } from '@auth/dtos/register.dto';
+import { UsersRepository } from '../../users/repositories/users.repository';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { GoogleAuthDto } from '../dtos/google-auth.dto';
+import { RegisterDto } from '../dtos/register.dto';
 import {
   AuthenticatedUser,
   AuthResponse,
   JwtPayload,
   TokenRefreshResponse,
   TokenDocument,
-} from '@auth/interfaces/auth.interface';
-import { TokenService } from '@tokens/services/token.service';
-import { EmailService } from '@email/services/email.service';
-import { AccountLockoutGuard } from '@common/guards/account-lockout.guard';
-import { SessionCoordinatorService } from '@sessions/services/session-coordinator.service';
-import { objectIdToString } from '@common/utils/type-guards';
+} from '../interfaces/auth.interface';
+import { TokenService } from '../../tokens/services/token.service';
+import { EmailService } from '../../email/services/email.service';
+import { AccountLockoutGuard } from '../../common/guards/account-lockout.guard';
+import { SessionCoordinatorService } from '../../sessions/services/session-coordinator.service';
+import { objectIdToString } from '../../common/utils/type-guards';
 import { Types } from 'mongoose';
 import { OAuth2Client } from 'google-auth-library';
 

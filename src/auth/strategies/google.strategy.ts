@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, VerifyCallback } from 'passport-google-oauth20';
-import { GoogleProfile } from '@auth/interfaces/auth.interface';
+import { GoogleProfile } from '../interfaces/auth.interface';
 
 /**
  * Google OAuth 2.0 Passport Strategy
