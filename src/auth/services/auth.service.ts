@@ -11,7 +11,7 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { Request } from 'express';
 import { UsersRepository } from '../../users/repositories/users.repository';
-import { CreateUserDto } from '../dtos/create-user.dto';
+import { CreateUserDto as UsersCreateUserDto } from '../../users/dtos/create-user.dto';
 import { GoogleAuthDto } from '../dtos/google-auth.dto';
 import { RegisterDto } from '../dtos/register.dto';
 import {
@@ -88,7 +88,7 @@ export class AuthService {
       }
 
       // Create new user
-      const createUserDto: CreateUserDto = {
+      const createUserDto: UsersCreateUserDto = {
         fullName: googleUser.fullName,
         email: googleUser.email,
         googleId: googleUser.googleId,
@@ -160,7 +160,7 @@ export class AuthService {
     );
 
     // Create user
-    const createUserDto: CreateUserDto = {
+    const createUserDto: UsersCreateUserDto = {
       fullName: registerDto.fullName,
       email: registerDto.email,
       password: hashedPassword,
