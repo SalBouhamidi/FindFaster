@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Types, Document } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { PopulatedRole } from '@users/interfaces/authenticated-user.interface';
+import { PopulatedRole } from '../../users/interfaces/authenticated-user.interface';
 
 export type UserDocument = User & Document;
 

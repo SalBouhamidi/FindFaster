@@ -5,10 +5,10 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { Types } from 'mongoose';
-import { RolesRepository } from '@roles/repositories/roles.repository';
-import { CreateRoleDto } from '@roles/dtos/create-role.dto';
-import { UpdateRoleDto } from '@roles/dtos/update-role.dto';
-import { RoleDocument } from '@roles/schemas/role.schema';
+import { RolesRepository } from '../repositories/roles.repository';
+import { CreateRoleDto } from '../dtos/create-role.dto';
+import { UpdateRoleDto } from '../dtos/update-role.dto';
+import { RoleDocument } from '../schemas/role.schema';
 
 @Injectable()
 export class RolesService {

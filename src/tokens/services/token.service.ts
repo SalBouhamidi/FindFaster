@@ -1,13 +1,13 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { randomBytes, createHash } from 'crypto';
-import { TokenType } from '@/tokens/schemas/token.schema';
-import { TokenRepository } from '@/tokens/repositories/tokens.repository';
-import { getErrorMessage, objectIdToString } from '@/common/utils/type-guards';
+import { TokenType } from '../schemas/token.schema';
+import { TokenRepository } from '../repositories/tokens.repository';
+import { getErrorMessage, objectIdToString } from '../../common/utils/type-guards';
 import {
   DeviceInfo,
   SessionInfo,
-} from '@sessions/interfaces/session.interface';
-import { TokenDocument } from '@/tokens/schemas/token.schema';
+} from '../../sessions/interfaces/session.interface';
+import { TokenDocument } from '../schemas/token.schema';
 
 @Injectable()
 export class TokenService {

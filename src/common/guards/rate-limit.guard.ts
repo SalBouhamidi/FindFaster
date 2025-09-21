@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { Reflector } from '@nestjs/core';
-import { isObject } from '@common/utils/type-guards';
+import { isObject } from '../utils/type-guards';
 
 interface RateLimitEntry {
   count: number;

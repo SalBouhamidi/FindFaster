@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ITokenInvalidator } from '../interfaces/session-manager.interface';
-import { TokenService } from '@tokens/services/token.service';
+import { TokenService } from '../../tokens/services/token.service';
 
 /**
  * Token Invalidator Service

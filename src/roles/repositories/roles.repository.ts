@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types, FilterQuery } from 'mongoose';
-import { Role, RoleDocument } from '@roles/schemas/role.schema';
-import { CreateRoleDto } from '@roles/dtos/create-role.dto';
-import { UpdateRoleDto } from '@roles/dtos/update-role.dto';
+import { Role, RoleDocument } from '../schemas/role.schema';
+import { CreateRoleDto } from '../dtos/create-role.dto';
+import { UpdateRoleDto } from '../dtos/update-role.dto';
 
 @Injectable()
 export class RolesRepository {

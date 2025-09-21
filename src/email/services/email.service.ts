@@ -1,16 +1,16 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as nodemailer from 'nodemailer';
-import { EmailTemplateRepository } from '@email/repositories/email-template.repository';
+import { EmailTemplateRepository } from '../repositories/email-template.repository';
 import {
   EmailVerificationData,
   WelcomeEmailData,
-} from '@email/interfaces/email-template.interface';
+} from '../interfaces/email-template.interface';
 import {
   SmtpConfig,
   EmailInfo,
   RateLimitConfig,
-} from '@email/types/email.types';
+} from '../types/email.types';
 
 // Interfaces moved to '@email/interfaces/email-template.interface' and '@email/types/email.types'
 

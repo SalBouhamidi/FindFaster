@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware, Logger } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
-import { isObject } from '@common/utils/type-guards';
+import { isObject } from '../utils/type-guards';
 
 /**
  * Security middleware that adds security headers and implements basic protections

@@ -7,13 +7,13 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Request } from 'express';
-import { UsersRepository } from '@users/repositories/users.repository';
-import { EmailService } from '@email/services/email.service';
+import { UsersRepository } from '../../users/repositories/users.repository';
+import { EmailService } from '../../email/services/email.service';
 import {
   hasProperty,
   isString,
   objectIdToString,
-} from '@common/utils/type-guards';
+} from '../utils/type-guards';
 import { ObjectId } from 'mongoose';
 
 interface LoginAttempt {

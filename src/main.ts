@@ -13,7 +13,7 @@ import {
   SecurityMiddleware,
   CSRFProtectionMiddleware,
   RequestSanitizationMiddleware,
-} from '@common/middleware/security.middleware';
+} from './common/middleware/security.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

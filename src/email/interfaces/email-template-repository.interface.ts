@@ -5,7 +5,7 @@ import {
   NewDeviceLoginData,
   PasswordResetData,
   PasswordChangeConfirmationData,
-} from '@email/interfaces/email-template.interface';
+} from './email-template.interface';
 
 export interface IEmailTemplateRepository {
   getEmailVerification(

@@ -6,9 +6,9 @@ import {
   NewDeviceLoginData,
   PasswordResetData,
   PasswordChangeConfirmationData,
-} from '@email/interfaces/email-template.interface';
-import { IEmailTemplateRepository } from '@email/interfaces/email-template-repository.interface';
-import { EmailTemplates } from '@email/templates/email-templates.service';
+} from '../interfaces/email-template.interface';
+import { IEmailTemplateRepository } from '../interfaces/email-template-repository.interface';
+import { EmailTemplates } from '../templates/email-templates.service';
 
 @Injectable()
 export class EmailTemplateRepository implements IEmailTemplateRepository {
