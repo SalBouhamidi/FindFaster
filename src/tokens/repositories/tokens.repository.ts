@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { Token, TokenDocument, TokenType } from '@/tokens/schemas/token.schema';
-import { ITokenRepository } from '@/tokens/interfaces/token-repository.interface';
+import { Token, TokenDocument, TokenType } from '../schemas/token.schema';
+import { ITokenRepository } from '../interfaces/token-repository.interface';
 
 /**
  * Token Repository Implementation

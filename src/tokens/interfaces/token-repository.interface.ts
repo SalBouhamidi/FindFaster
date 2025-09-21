@@ -1,4 +1,4 @@
-import { Token, TokenDocument, TokenType } from '@/tokens/schemas/token.schema';
+import { Token, TokenDocument, TokenType } from '../schemas/token.schema';
 
 /**
  * Token Repository Interface
