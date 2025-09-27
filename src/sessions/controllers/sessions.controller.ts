@@ -18,15 +18,15 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { Request } from 'express';
-import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
-import { GetUser } from '@common/decorators/get-user.decorator';
-import { AuthenticatedUser } from '@auth/interfaces/auth.interface';
-import { SessionCoordinatorService } from '@sessions/services/session-coordinator.service';
-import { SessionExtractorService } from '@sessions/services/session-extractor.service';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
+import { GetUser } from '../../common/decorators/get-user.decorator';
+import { AuthenticatedUser } from '../../auth/interfaces/auth.interface';
+import { SessionCoordinatorService } from '../services/session-coordinator.service';
+import { SessionExtractorService } from '../services/session-extractor.service';
 import {
   SessionStats,
   SessionStatsSummary,
-} from '@sessions/interfaces/session-manager.interface';
+} from '../interfaces/session-manager.interface';
 
 /**
  * Sessions controller

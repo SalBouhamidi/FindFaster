@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { EmailTemplate } from '../interfaces/email-template.interface';
-import { generateEmailVerification } from '@email/templates/auth/email-verification.template';
-import { generateWelcomeEmail } from '@email/templates/auth/welcome-email.template';
-import { generatePasswordReset } from '@email/templates/auth/password-reset.template';
-import { generatePasswordChangeConfirmation } from '@email/templates/auth/password-change-confirmation.template';
-import { generateNewDeviceLogin } from '@email/templates/security/new-device-login.template';
-import { generateAccountLocked } from '@email/templates/security/account-locked.template';
-import { generateNewsletter } from '@email/templates/notifications/newsletter.template';
-import { generateServiceUpdate } from '@email/templates/notifications/service-update.template';
+import { generateEmailVerification } from './auth/email-verification.template';
+import { generateWelcomeEmail } from './auth/welcome-email.template';
+import { generatePasswordReset } from './auth/password-reset.template';
+import { generatePasswordChangeConfirmation } from './auth/password-change-confirmation.template';
+import { generateNewDeviceLogin } from './security/new-device-login.template';
+import { generateAccountLocked } from './security/account-locked.template';
+import { generateNewsletter } from './notifications/newsletter.template';
+import { generateServiceUpdate } from './notifications/service-update.template';
 
 @Injectable()
 export class EmailTemplates {

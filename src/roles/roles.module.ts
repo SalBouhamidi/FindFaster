@@ -1,11 +1,11 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Role, RoleSchema } from '@roles/schemas/role.schema';
-import { RolesRepository } from '@roles/repositories/roles.repository';
-import { RolesService } from '@roles/services/roles.service';
-import { RoleAssignmentService } from '@roles/services/role-assignment.service';
-import { RolesController } from '@roles/controllers/roles.controller';
-import { RolesGuard } from '@roles/guards/roles.guard';
+import { Role, RoleSchema } from './schemas/role.schema';
+import { RolesRepository } from './repositories/roles.repository';
+import { RolesService } from './services/roles.service';
+import { RoleAssignmentService } from './services/role-assignment.service';
+import { RolesController } from './controllers/roles.controller';
+import { RolesGuard } from './guards/roles.guard';
 
 @Module({
   imports: [

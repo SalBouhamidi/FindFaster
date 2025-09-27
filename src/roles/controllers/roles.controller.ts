@@ -24,13 +24,13 @@ import {
   ApiForbiddenResponse,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { RolesService } from '@roles/services/roles.service';
-import { CreateRoleDto } from '@roles/dtos/create-role.dto';
-import { UpdateRoleDto } from '@roles/dtos/update-role.dto';
+import { RolesService } from '../services/roles.service';
+import { CreateRoleDto } from '../dtos/create-role.dto';
+import { UpdateRoleDto } from '../dtos/update-role.dto';
 
-import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
-import { RolesGuard } from '@roles/guards/roles.guard';
-import { RequireRoles } from '@common/decorators/roles.decorator';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../../auth/guards/roles.guard';
+import { RequireRoles } from '../../common/decorators/roles.decorator';
 
 @ApiTags('Roles Management')
 @ApiBearerAuth('JWT-auth')

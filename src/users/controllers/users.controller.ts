@@ -26,15 +26,15 @@ import {
   ApiForbiddenResponse,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { UsersService } from '@users/services/users.service';
-import { CreateUserDto } from '@users/dtos/create-user.dto';
-import { UpdateUserDto } from '@users/dtos/update-user.dto';
-import { AssignUserRolesDto } from '@users/dtos/assign-user-roles.dto';
-import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
-import { RolesGuard } from '@roles/guards/roles.guard';
-import { RequireRoles } from '@common/decorators/roles.decorator';
-import { GetUser } from '@common/decorators/get-user.decorator';
-import { AuthenticatedUser } from '@auth/interfaces/auth.interface';
+import { UsersService } from '../services/users.service';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { UpdateUserDto } from '../dtos/update-user.dto';
+import { AssignUserRolesDto } from '../dtos/assign-user-roles.dto';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../../auth/guards/roles.guard';
+import { RequireRoles } from '../../common/decorators/roles.decorator';
+import { GetUser } from '../../common/decorators/get-user.decorator';
+import { AuthenticatedUser } from '../../auth/interfaces/auth.interface';
 
 /**
  * Users controller

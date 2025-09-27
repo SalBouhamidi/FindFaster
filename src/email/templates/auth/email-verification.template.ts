@@ -1,8 +1,8 @@
 import {
   EmailTemplate,
   EmailVerificationData,
-} from '@email/interfaces/email-template.interface';
-import { EMAIL_CONSTANTS } from '@email/constants/email.constants';
+} from '../../interfaces/email-template.interface';
+import { EMAIL_CONSTANTS } from '../../constants/email.constants';
 
 export function generateEmailVerification(
   data: EmailVerificationData,

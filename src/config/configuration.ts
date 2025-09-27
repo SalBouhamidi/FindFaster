@@ -2,7 +2,7 @@ import 'dotenv/config';
 import {
   validateEnvironment,
   logEnvironmentInfo,
-} from '@config/environment.validator';
+} from './environment.validator';
 
 // Validate environment on module load (after .env is loaded)
 const validatedEnv = validateEnvironment(process.env);

@@ -5,7 +5,7 @@ import {
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
-import { isObject, isString, hasProperty } from '@common/utils/type-guards';
+import { isObject, isString, hasProperty } from '../utils/type-guards';
 
 export interface PasswordPolicyOptions {
   minLength?: number;

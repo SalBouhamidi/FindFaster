@@ -7,12 +7,12 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Types } from 'mongoose';
-import { UsersRepository } from '@users/repositories/users.repository';
-import { RolesService } from '@roles/services/roles.service';
-import { CreateUserDto } from '@users/dtos/create-user.dto';
-import { UpdateUserDto } from '@users/dtos/update-user.dto';
-import { UserDocument } from '@users/schemas/user.schema';
-import { PopulatedRole } from '@users/interfaces/role.interface';
+import { UsersRepository } from '../repositories/users.repository';
+import { RolesService } from '../../roles/services/roles.service';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { UpdateUserDto } from '../dtos/update-user.dto';
+import { UserDocument } from '../schemas/user.schema';
+import { PopulatedRole } from '../interfaces/role.interface';
 
 @Injectable()
 export class UsersService {

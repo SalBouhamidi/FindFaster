@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { UserRole } from '@users/schemas/user.schema';
+import { UserRole } from '../../users/schemas/user.schema';
 import { Types } from 'mongoose';
 
 /**

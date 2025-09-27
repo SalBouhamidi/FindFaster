@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Types, Document } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { PopulatedRole } from '@users/interfaces/authenticated-user.interface';
+import { PopulatedRole } from '../../users/interfaces/authenticated-user.interface';
 
 export type UserDocument = User & Document;
 
@@ -250,7 +250,7 @@ export class User {
     example: 'HP12345678901',
     required: false,
   })
-  @Prop({ required: false, index: true })
+  @Prop({ required: false })
   hotmartTransactionId?: string;
 
   @ApiProperty({
@@ -258,7 +258,7 @@ export class User {
     example: 'SC123456789',
     required: false,
   })
-  @Prop({ required: false, index: true })
+  @Prop({ required: false })
   hotmartSubscriberCode?: string;
 
   @ApiProperty({

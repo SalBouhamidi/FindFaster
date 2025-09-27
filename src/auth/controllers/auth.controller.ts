@@ -23,19 +23,19 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 import { Request, Response } from 'express';
-import { AuthService } from '@auth/services/auth.service';
-import { GoogleAuthGuard } from '@auth/guards/google-auth.guard';
-import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
-import { GoogleAuthDto } from '@auth/dtos/google-auth.dto';
-import { RegisterDto } from '@auth/dtos/register.dto';
-import { LoginDto } from '@auth/dtos/login.dto';
-import { ForgotPasswordDto } from '@auth/dtos/forgot-password.dto';
-import { ResetPasswordDto } from '@auth/dtos/reset-password.dto';
-import { VerifyEmailDto } from '@auth/dtos/verify-email.dto';
-import { GetUser } from '@common/decorators/get-user.decorator';
-import { AuthenticatedUser } from '@auth/interfaces/auth.interface';
-import { RateLimitGuard, RateLimit } from '@common/guards/rate-limit.guard';
-import { AccountLockoutGuard } from '@common/guards/account-lockout.guard';
+import { AuthService } from '../services/auth.service';
+import { GoogleAuthGuard } from '../guards/google-auth.guard';
+import { JwtAuthGuard } from '../guards/jwt-auth.guard';
+import { GoogleAuthDto } from '../dtos/google-auth.dto';
+import { RegisterDto } from '../dtos/register.dto';
+import { LoginDto } from '../dtos/login.dto';
+import { ForgotPasswordDto } from '../dtos/forgot-password.dto';
+import { ResetPasswordDto } from '../dtos/reset-password.dto';
+import { VerifyEmailDto } from '../dtos/verify-email.dto';
+import { GetUser } from '../../common/decorators/get-user.decorator';
+import { AuthenticatedUser } from '../interfaces/auth.interface';
+import { RateLimitGuard, RateLimit } from '../../common/guards/rate-limit.guard';
+import { AccountLockoutGuard } from '../../common/guards/account-lockout.guard';
 import { GoogleTokenDto } from '../dtos/google-token.dto';
 
 /**
