@@ -891,4 +891,25 @@ export class AuthService {
       throw new BadRequestException('Invalid Google token');
     }
   }
+ /**
+   * Checks if a user has a premium (paid) status.
+   * This method will be called by the AuthController for the extension's payment check.
+   * @param userId The ID of the user to check.
+   * @returns A boolean indicating if the user is a premium (paid) user.
+   */
+
+async checkUserPaymentStatus(userId: string): Promise<boolean> {
+  this.logger.log(`Checking payment status for user ID: ${userId}`);
+
+  const user = await this.usersRepository.findById(userId);
+
+  if (!user || !user.isActive) {
+    this.logger.warn(`User ${userId} not found or inactive during payment check.`);
+    return false;
+  }
+
+  
+  return user.isPremium === true;
 }
+}
+

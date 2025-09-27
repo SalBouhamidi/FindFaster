@@ -16,7 +16,7 @@ import {
 } from '@common/middleware/security.middleware';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { rawBody: true });
   const configService = app.get(ConfigService);
 
   // Validate critical environment variables
@@ -111,92 +111,7 @@ async function bootstrap() {
         value: false,
       },
     }),
-  );
+  );}
 
-  // Enhanced session configuration
-  const sessionSecret =
-    configService.get<string>('session.secret') ?? 'fallback-session-secret';
-  if (
-    sessionSecret === 'fallback-session-secret' &&
-    process.env.NODE_ENV === 'production'
-  ) {
-    console.error(
-      '❌ Production environment detected with fallback session secret!',
-    );
-    process.exit(1);
-  }
-
-  app.use(
-    session({
-      secret: sessionSecret,
-      resave: false,
-      saveUninitialized: false,
-      name: 'findfaster.session',
-      cookie: {
-        secure: configService.get<string>('app.nodeEnv') === 'production',
-        httpOnly: true,
-        maxAge: 2 * 60 * 60 * 1000, // 2 hours (shorter for security)
-        sameSite: 'lax',
-      },
-      rolling: true, // Reset expiry on each request
-      // Persistent session store (MongoDB)
-      store: MongoStore.create({
-        mongoUrl: configService.get<string>('database.uri')!,
-        dbName: 'findfaster',
-        collectionName: 'sessions',
-        ttl: 2 * 60 * 60, // 2 hours in seconds
-        autoRemove: 'native',
-        touchAfter: 300, // reduce write frequency
-      }),
-    }),
-  );
-
-  // Cookie parser middleware
-  app.use(cookieParser(configService.get<string>('session.secret')));
-
-  // Global route prefix
-  app.setGlobalPrefix('api', {
-    exclude: ['/health', '/metrics'], // Health check endpoints
-  });
-
-  // API Docs (Swagger) - enabled in development or when explicitly toggled
-  const enableApiDocs =
-    configService.get<boolean>('app.enableApiDocs') === true ||
-    configService.get<string>('app.nodeEnv') !== 'production';
-  if (enableApiDocs) {
-    const swaggerConfig = new DocumentBuilder()
-      .setTitle('Dork Engine')
-      .setDescription('API documentation for Dork Engine Backend')
-      .setVersion('1.0.0')
-      .addBearerAuth(
-        { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-        'JWT-auth',
-      )
-      .build();
-    const document = SwaggerModule.createDocument(app, swaggerConfig);
-    SwaggerModule.setup('docs', app, document, { useGlobalPrefix: true });
-  }
-
-  // Trust proxy if behind reverse proxy
-  if (process.env.TRUST_PROXY === 'true') {
-    app.enableCors({ credentials: true });
-    await app.init();
-    const expressInstance = app
-      .getHttpAdapter()
-      .getInstance() as unknown as Express;
-    expressInstance.set('trust proxy', 1);
-  }
-
-  const port = configService.get<number>('app.port') || 3000;
-  await app.listen(port, '0.0.0.0');
-
-  console.log(`🚀 DorkEngine Backend running on port ${port}`);
-  console.log(`📄 Environment: ${configService.get<string>('app.nodeEnv')}`);
-  console.log(
-    `🌐 Frontend URL: ${configService.get<string>('app.frontendUrl')}`,
-  );
-  console.log(`🔒 Security middleware enabled`);
-  console.log(`🛡️  CORS configured for ${allowedOrigins.length} origins`);
-}
 
 void bootstrap();

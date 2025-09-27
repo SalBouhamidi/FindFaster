@@ -30,5 +30,11 @@
       "@tokens/*": ["src/tokens/*"],
       "@sessions/*": ["src/sessions/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

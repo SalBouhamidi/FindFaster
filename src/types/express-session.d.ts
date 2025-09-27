@@ -7,3 +7,9 @@ declare module 'express-session' {
     };
   }
 }
+
+declare namespace Express {
+  interface Request {
+    rawBody?: Buffer; 
+  }
+}

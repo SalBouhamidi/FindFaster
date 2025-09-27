@@ -755,17 +755,45 @@ export class AuthController {
       });
     }
   }
+   /*** Validates the JWT token from the extension and checks if the user has paid.
+ * @param user Authenticated user from JWT token
+ * @returns Object indicating token validity and payment status
+ */
+@Post('validate-and-check-payment')
+@UseGuards(JwtAuthGuard)
+@ApiOperation({ summary: 'Validate extension token and check user payment status' })
+@ApiOkResponse({
+  description: 'Token valid and user payment status returned',
+  schema: {
+    example: {
+      isValid: true,
+      isPaid: true,
+    },
+  },
+})
+@ApiUnauthorizedResponse({ description: 'Invalid or expired token' })
+async validateAndCheckPayment(
+  @GetUser() user: AuthenticatedUser,
+): Promise<{ isValid: boolean; isPaid: boolean }> {
+  this.logger.log(`Extension token validation and payment check for user: ${user.email}`, {
+    userId: user.id,
+  });
 
-  /**
-   * Get client IP address
-   */
-  private getClientIP(req: Request): string {
-    return (
-      (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
-      (req.headers['x-real-ip'] as string) ||
-      req.connection?.remoteAddress ||
-      req.socket?.remoteAddress ||
-      'unknown'
-    );
-  }
+  const isPaid = await this.authService.checkUserPaymentStatus(user.id);
+
+  return {
+    isValid: true,
+    isPaid: isPaid,
+  };
+}
+
+private getClientIP(req: Request): string { // <<-- Is method ko yahan wapas daalein
+  return (
+    (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
+    (req.headers['x-real-ip'] as string) ||
+    req.connection?.remoteAddress ||
+    req.socket?.remoteAddress ||
+    'unknown'
+  );
+}
 }

@@ -12,6 +12,12 @@ if (validatedEnv.NODE_ENV === 'development') {
   logEnvironmentInfo(validatedEnv);
 }
 
+console.log('--- Debugging Google Config ---');
+console.log('Validated GOOGLE_CLIENT_ID:', validatedEnv.GOOGLE_CLIENT_ID);
+console.log('Validated GOOGLE_CLIENT_SECRET:', validatedEnv.GOOGLE_CLIENT_SECRET);
+console.log('Validated GOOGLE_CALLBACK_URL:', validatedEnv.GOOGLE_CALLBACK_URL);
+console.log('--- End Debug ---');
+
 export default () => ({
   database: {
     uri: validatedEnv.MONGODB_URI,
